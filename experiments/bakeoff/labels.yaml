@@ -1,0 +1,63 @@
+# Labelled article pairs for the embedding bake-off (B1a). Hand-labelled by the orchestrator from the abstracts; the owner spot-checks.
+# Articles are identified by id (data/articles.jsonl is git-ignored; rewrites.yaml holds the constructed partners, ids rw-<of>).
+# No headlines here on purpose. Run `python experiments/bakeoff/check_labels.py --review` for a readable table.
+# label: same (the same story told twice), related (same subject, a different story), unrelated.
+# kind (same only): real = two real articles; rewritten = an article and its constructed partner.
+pairs:
+  - {a: "68811e0d8b", b: "c2f163e5b0", label: same, kind: real, note: "two outlets, same news event"}
+  - {a: "0d92f57c72", b: "984513ae1f", label: same, kind: real, note: "identical abstract under two headlines: the article was re-titled"}
+  - {a: "d69d0f141f", b: "rw-d69d0f141f", label: same, kind: rewritten}
+  - {a: "215687ca93", b: "rw-215687ca93", label: same, kind: rewritten}
+  - {a: "799f4cfbce", b: "rw-799f4cfbce", label: same, kind: rewritten}
+  - {a: "8983976445", b: "rw-8983976445", label: same, kind: rewritten}
+  - {a: "22dc4f77b8", b: "rw-22dc4f77b8", label: same, kind: rewritten}
+  - {a: "02f705171a", b: "rw-02f705171a", label: same, kind: rewritten}
+  - {a: "0ae689850b", b: "rw-0ae689850b", label: same, kind: rewritten}
+  - {a: "25113de214", b: "rw-25113de214", label: same, kind: rewritten}
+  - {a: "071e826394", b: "rw-071e826394", label: same, kind: rewritten}
+  - {a: "06b8d0ad6f", b: "rw-06b8d0ad6f", label: same, kind: rewritten}
+  - {a: "c7a94f8b7c", b: "rw-c7a94f8b7c", label: same, kind: rewritten}
+  - {a: "d7c77ea971", b: "rw-d7c77ea971", label: same, kind: rewritten}
+  - {a: "9d7749e3a4", b: "rw-9d7749e3a4", label: same, kind: rewritten}
+  - {a: "602240d53c", b: "rw-602240d53c", label: same, kind: rewritten}
+  - {a: "5e5a52dee6", b: "rw-5e5a52dee6", label: same, kind: rewritten}
+  - {a: "3ec2e27891", b: "984513ae1f", label: related, note: "data-center backlash, different article"}
+  - {a: "2550523e2a", b: "0d92f57c72", label: related, note: "data-center buildout, different article"}
+  - {a: "3ec2e27891", b: "0d92f57c72", label: related, note: "data-center backlash, different article"}
+  - {a: "2d684b7748", b: "8ec1f46dcf", label: related, note: "agent memory and retrieval, two takes"}
+  - {a: "f8faf1ef9b", b: "28d4a769c1", label: related, note: "same model family, a launch vs a history"}
+  - {a: "848a6e33be", b: "fabe838d73", label: related, note: "same model family, two different launches"}
+  - {a: "4e3e5904c8", b: "143dff8f75", label: related, note: "same country, two different partnerships"}
+  - {a: "5e5a52dee6", b: "51c36b16bd", label: related, note: "sovereign AI infrastructure, two different announcements"}
+  - {a: "c6cbf678fe", b: "7d14e01def", label: related, note: "speech models, two different launches"}
+  - {a: "ee3ebb0cf1", b: "e2aca7c0bd", label: related, note: "reinforcement learning, different techniques"}
+  - {a: "eb664f1b1d", b: "c8bf0b8e91", label: related, note: "same assistant, different subjects"}
+  - {a: "ce98a1849b", b: "0fa505f84a", label: related, note: "agent harnesses and failures, two takes"}
+  - {a: "8086e15e08", b: "4d3e8ddaeb", label: related, note: "same framework, a case study vs a release note"}
+  - {a: "9c331579e2", b: "baad262260", label: related, note: "same cloud marketplace, different products"}
+  - {a: "dc742b2cbd", b: "840d5b41ac", label: related, note: "chip-maker partnership, different countries and fields"}
+  - {a: "c71df7975e", b: "b4eac762a1", label: related, note: "same company, infrastructure software vs open-source news"}
+  - {a: "bd2a6830d8", b: "4e3e5904c8", label: related, note: "same company, an acquisition vs a customer deal"}
+  - {a: "68811e0d8b", b: "90a2e60457", label: related, note: "same ongoing news thread, a later development"}
+  - {a: "c2f163e5b0", b: "90a2e60457", label: related, note: "same ongoing news thread, a later development"}
+  - {a: "0ca5cf57ee", b: "90a2e60457", label: related, note: "same ongoing news thread, a later development"}
+  - {a: "3ec2e27891", b: "8d90e8324f", label: unrelated}
+  - {a: "bd2a6830d8", b: "3880bf849b", label: unrelated}
+  - {a: "88e73b340e", b: "242a507726", label: unrelated}
+  - {a: "b5708027eb", b: "af27ca0830", label: unrelated}
+  - {a: "a2d076a923", b: "53c56afbaf", label: unrelated}
+  - {a: "c98e24de8e", b: "23d29d28da", label: unrelated}
+  - {a: "d363b026f0", b: "242a507726", label: unrelated}
+  - {a: "7d4c517a68", b: "4069e5410c", label: unrelated}
+  - {a: "8065dada88", b: "28d4a769c1", label: unrelated}
+  - {a: "a0a290cb09", b: "95dd2fdb04", label: unrelated}
+  - {a: "6823fc9a00", b: "b353a5fa61", label: unrelated}
+  - {a: "690aea53d2", b: "f0ce2d309f", label: unrelated}
+  - {a: "d0cd6e4412", b: "baad262260", label: unrelated}
+  - {a: "b558fe0be3", b: "28d4a769c1", label: unrelated}
+  - {a: "9e57b3c7cb", b: "341da0bd75", label: unrelated}
+  - {a: "eb664f1b1d", b: "bd26e36ced", label: unrelated}
+  - {a: "eda69f3802", b: "cc08f244a1", label: unrelated}
+  - {a: "b91db1d100", b: "cc08f244a1", label: unrelated}
+  - {a: "8065dada88", b: "1fd8c246d4", label: unrelated}
+  - {a: "803782c5d4", b: "ed74ed5328", label: unrelated}

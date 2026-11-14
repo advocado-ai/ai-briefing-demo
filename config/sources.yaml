@@ -1,0 +1,143 @@
+# Feed sources, read by tools/harvest and experiments/bakeoff.
+#
+# type: rss (default) | html_index
+#   html_index = fallback for sites with no RSS: scrape anchors whose href matches `link_regex`.
+# hint:      category key the source usually belongs to (a hint for the LLM, not a hard rule)
+# max_items: newest N entries to take from this feed per run (cost control)
+# keywords:  optional include-filter (any match in title/abstract) for noisy feeds
+# detail_fetch (html_index only): fetch <meta description> for the first N unseen links
+#
+# Provenance: URLs marked "official" come from the publisher's own pages; the rest were found via
+# public feed directories / docs. Anything that fails to fetch can simply be deleted or fixed here.
+
+sources:
+  # ---------- AI news & hardware ----------
+  - name: MIT Technology Review - AI
+    url: https://www.technologyreview.com/topic/artificial-intelligence/feed
+    hint: industry_hardware
+  - name: NVIDIA Technical Blog            # official (nvidia.com/llms.txt)
+    url: https://developer.nvidia.com/blog/feed/
+    hint: industry_hardware
+  - name: NVIDIA Newsroom                  # official (nvidia.com/llms.txt)
+    url: https://nvidianews.nvidia.com/releases.xml
+    hint: industry_hardware
+    max_items: 10
+  - name: Wired - AI
+    url: https://www.wired.com/feed/tag/ai/latest/rss
+    hint: industry_hardware
+  - name: TechCrunch - AI
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    hint: industry_hardware
+  - name: MIT News - AI
+    url: https://news.mit.edu/rss/topic/artificial-intelligence2
+    hint: research
+  - name: Hacker News - LLM (150+ points)
+    url: https://hnrss.org/newest?q=LLM&points=150
+    hint: industry_hardware
+    max_items: 15
+
+  # ---------- Models & open source ----------
+  - name: Hugging Face Blog
+    url: https://huggingface.co/blog/feed.xml
+    hint: models_opensource
+  # (removed 2026-11-09: "Hugging Face Daily Papers" community feed at jamesg.blog/hf-papers.xml now returns 410 Gone)
+  - name: OpenAI News
+    url: https://openai.com/news/rss.xml
+    hint: models_opensource
+  - name: Google DeepMind Blog
+    url: https://deepmind.google/blog/rss.xml
+    hint: models_opensource
+  - name: Mistral AI News
+    url: https://mistral.ai/news/rss
+    hint: models_opensource
+  - name: Ollama Blog (community-generated feed)
+    url: https://raw.githubusercontent.com/Olshansk/rss-feeds/refs/heads/main/feeds/feed_ollama.xml
+    hint: models_opensource
+  - name: Simon Willison's Weblog
+    url: https://simonwillison.net/atom/everything/
+    hint: models_opensource
+    max_items: 15
+  - name: Ahead of AI (Sebastian Raschka)
+    url: https://magazine.sebastianraschka.com/feed
+    hint: models_opensource
+
+  # ---------- Agents & LLMOps (LangGraph / LangChain / LangSmith / Langfuse) ----------
+  - name: LangChain Blog
+    url: https://www.langchain.com/blog/rss.xml   # was blog.langchain.com/rss/, which now redirects to an HTML page
+    hint: agents_llmops
+  - name: GitHub releases - langgraph
+    url: https://github.com/langchain-ai/langgraph/releases.atom
+    hint: agents_llmops
+    max_items: 5
+  - name: GitHub releases - langchain
+    url: https://github.com/langchain-ai/langchain/releases.atom
+    hint: agents_llmops
+    max_items: 5
+  - name: GitHub releases - langsmith-sdk
+    url: https://github.com/langchain-ai/langsmith-sdk/releases.atom
+    hint: agents_llmops
+    max_items: 4
+  - name: GitHub releases - langfuse
+    url: https://github.com/langfuse/langfuse/releases.atom
+    hint: agents_llmops
+    max_items: 5
+  - name: Langfuse Changelog (scraped)
+    type: html_index
+    url: https://langfuse.com/changelog
+    link_regex: '^https://langfuse\.com/changelog/\d{4}-\d{2}-\d{2}'
+    hint: agents_llmops
+    max_items: 8
+    detail_fetch: 8
+
+  # ---------- Research ----------
+  - name: arXiv cs.AI (keyword filtered)
+    url: https://rss.arxiv.org/rss/cs.AI
+    hint: research
+    max_items: 60
+    keywords: [agent, llm, language model, retrieval, rag, reasoning, inference, fine-tun, evaluation, tool use, multi-agent, benchmark]
+  - name: arXiv cs.CL (keyword filtered)
+    url: https://rss.arxiv.org/rss/cs.CL
+    hint: research
+    max_items: 60
+    keywords: [agent, llm, language model, retrieval, rag, reasoning, inference, fine-tun, evaluation, tool use, multi-agent, benchmark]
+  - name: BAIR Blog
+    url: https://bair.berkeley.edu/blog/feed.xml
+    hint: research
+    max_items: 5
+  - name: Microsoft Research
+    url: https://www.microsoft.com/en-us/research/feed/
+    hint: research
+    max_items: 12
+
+  # ---------- Enterprise AI & consulting ----------
+  - name: AWS Machine Learning Blog
+    url: https://aws.amazon.com/blogs/machine-learning/feed/
+    hint: enterprise
+  - name: IBM Newsroom - AI
+    url: https://newsroom.ibm.com/press-releases-artificial-intelligence?pagetemplate=rss
+    hint: enterprise
+    max_items: 10
+
+  # ---------- Courses & learning ----------
+  - name: DeepLearning.AI - The Batch (scraped, no native RSS)
+    type: html_index
+    url: https://www.deeplearning.ai/the-batch/
+    link_regex: 'deeplearning\.ai/the-batch/issue-'
+    hint: learning
+    max_items: 6
+    detail_fetch: 6
+  - name: DeepLearning.AI - Courses (scraped, no native RSS)
+    type: html_index
+    url: https://www.deeplearning.ai/courses/
+    link_regex: 'deeplearning\.ai/(short-courses|courses)/[^/?#]+/?$'
+    hint: learning
+    max_items: 12
+    detail_fetch: 12
+  - name: Machine Learning Mastery
+    url: https://machinelearningmastery.com/blog/feed
+    hint: learning
+    max_items: 8
+  - name: freeCodeCamp - Machine Learning
+    url: https://www.freecodecamp.org/news/tag/machine-learning/rss/
+    hint: learning
+    max_items: 8

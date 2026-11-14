@@ -1,0 +1,25 @@
+# conda environment for the embedding bake-off (B1), a one-session experiment kept apart from the project's own environment.
+#   conda env create -f experiments/bakeoff/environment.yml      (from the repo root)
+#   conda activate ai-briefing-bakeoff
+#   (already created? use: conda env update -f <same file> --prune)
+#
+# B1a (data and pairs) needed the conda packages. B1b adds the embedding libraries: PyTorch (CPU-only build, because the protocol
+# measures the CPU and this avoids a multi-GB CUDA download), sentence-transformers, and fastembed (a small ONNX-based library).
+name: ai-briefing-bakeoff
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - feedparser
+  - httpx
+  - pyyaml
+  - numpy
+  - scikit-learn
+  - psutil
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cpu
+      - torch
+      - torchvision  # EmbeddingGemma 2's processor imports it even for text only
+      - sentence-transformers
+      - fastembed

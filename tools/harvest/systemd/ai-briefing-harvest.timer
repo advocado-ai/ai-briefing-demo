@@ -1,0 +1,17 @@
+[Unit]
+Description=Run the ai-briefing feed harvest twice a day, and catch up when the laptop was off
+
+[Timer]
+# Two slots a day, in the machine's local time. Adjust once the arXiv feeds' populated hour is known (see README, "Known limits").
+OnCalendar=*-*-* 09:00:00
+OnCalendar=*-*-* 21:00:00
+# Catch-up 1: if a slot passed while the timer was not running (laptop off or asleep), run once as soon as the timer starts.
+Persistent=true
+# Catch-up 2: also run a few minutes after the user manager starts, which is the first login of the day. The harvest is
+# idempotent, so an extra run costs one request per feed.
+OnStartupSec=3min
+RandomizedDelaySec=2min
+Unit=ai-briefing-harvest.service
+
+[Install]
+WantedBy=timers.target

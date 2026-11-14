@@ -1,0 +1,86 @@
+# Constructed same-story partners for the bake-off (B1a). Each entry is a second telling of one fetched article, written by the
+# orchestrator from that article's abstract ONLY (no added facts), with a different headline and different wording, the way another
+# outlet would report it. They stand in for cross-outlet duplicates, which are rare in the feed list (see README.md). Reports must
+# keep them apart from the real same-story pairs. The article is identified by `of` (its id in data/articles.jsonl); the partner's id is rw-<of>.
+rewrites:
+  - of: "d69d0f141f"
+    title: Comparing authorization policies by meaning rather than by text
+    abstract: >-
+      Line-by-line comparison of two formal policies drowns reviewers in cosmetic edits while the change that matters slips through. The
+      article demonstrates a deterministic, symbolic comparison built on an open-source anti-unification engine, which surfaces only the
+      real differences between two candidate authorization policies.
+  - of: "215687ca93"
+    title: "Open-source tooling for 6G research: Aerial joins Sionna"
+    abstract: >-
+      NVIDIA released its Aerial wireless software as open source a year ago, adding to Sionna and a wider set of open tools for building
+      next-generation 6G networks. The toolset lets researchers test ideas, compare results and build on one another's work, linking
+      simulation and AI training with experiments on real over-the-air wireless systems.
+  - of: "799f4cfbce"
+    title: Ollama can now run text-to-speech models
+    abstract: >-
+      Speech models are now supported in Ollama, with Phonon from Gradium first in line. It reads text aloud in five languages and dozens
+      of voices, streaming the audio while it is generated, at more than 100 times real time on Apple Silicon.
+  - of: "8983976445"
+    title: Rolling out Codex across an enterprise with Bedrock as the backend
+    abstract: >-
+      A hands-on guide for companies deploying OpenAI Codex to their developers on AWS, using Amazon Bedrock as the model backend. It walks
+      through the access, governance and cost choices that platform, security and finance teams have to agree on.
+  - of: "22dc4f77b8"
+    title: NVIDIA and South Korea's science ministry widen their sovereign AI partnership
+    abstract: >-
+      NVIDIA and Korea's Ministry of Science and ICT are broadening their cooperation on the country's sovereign AI ecosystem, covering AI
+      chips, data center infrastructure, talent, startups, models, agents and security. The agreement prepares Korean NPU and XPU companies
+      to look at joining the NVLink Fusion ecosystem.
+  - of: "02f705171a"
+    title: AWS ships an official local emulator for testing against its services
+    abstract: >-
+      AWS has released an official emulator that lets developers run tests against a local clone of many of its services, with no need to
+      provision anything or pay for an API key. It is written in Rust by a large swarm of agents, logged 29,684 commits in its first three
+      weeks, and currently needs Docker on macOS and Windows.
+  - of: "0ae689850b"
+    title: Benchmarking pgvector against standalone vector stores
+    abstract: >-
+      Run on an ordinary laptop, both setups report query latencies from a few milliseconds up to tens of milliseconds, and the exact
+      figures depend heavily on the processor, the available memory and whatever else the machine happens to be doing.
+  - of: "25113de214"
+    title: Nemotron 3.5 Lightning arrives in Ollama
+    abstract: >-
+      NVIDIA's Nemotron 3.5 Lightning can now be run through Ollama. The open model has 30 billion parameters, 3 billion of them active,
+      and is designed for agents that keep running, collect context, call tools and work through multi-step tasks on local hardware.
+  - of: "071e826394"
+    title: Why infrastructure is entering a defining era, according to an MIT professor
+    abstract: >-
+      Ali Jadbabaie explains that AI, digital transformation, climate change and complicated geopolitics are pushing engineers and
+      policymakers to rethink how infrastructure gets designed, built and managed.
+  - of: "06b8d0ad6f"
+    title: Gemini Robotics ER 2 improves video understanding and multi-robot teamwork
+    abstract: >-
+      Google DeepMind's Gemini Robotics ER 2 is built to help robots reason, cooperate and solve practical tasks, with a major jump in
+      understanding video, orchestrating tools and coordinating several robots.
+  - of: "c7a94f8b7c"
+    title: Designing incentives so AI agents follow the rules
+    abstract: >-
+      An emerging method called "reverse game theory" tries to keep powerful AI models in check by building systems that reward them for
+      sticking to the rules. As models become more capable, safety researchers are racing to make sure they stay aligned with human wishes
+      and that rogue agents do not break the law.
+  - of: "d7c77ea971"
+    title: LLM 0.37.2 patches a flaw that could leak an OpenAI API key
+    abstract: >-
+      A security fix for the LLM command-line tool closes two ways its OpenAI-compatible endpoint feature, extra-openai-models.yaml, could
+      send a user's configured OpenAI key to another provider: when the key named by api_key_name had never been stored, or when a model
+      with responses set to true was run with the option -o chat_completions 1.
+  - of: "9d7749e3a4"
+    title: Keeping an agent registry in sync through event-driven pushes on AWS
+    abstract: >-
+      The article builds a pipeline that updates the AWS Agent Registry on its own. CloudTrail, EventBridge, Lambda and AgentCore Identity
+      detect changes to MCP servers and push the new tool metadata into the registry without any stored secrets, for one account or many.
+  - of: "602240d53c"
+    title: Ollama 0.31 speeds up Gemma 4 on Macs with multi-token prediction
+    abstract: >-
+      Gemma 4 runs considerably faster in Ollama 0.31 on Apple Silicon thanks to multi-token prediction on the MLX engine. With coding
+      agents the speedup reaches 90 percent on the Aider polyglot benchmark.
+  - of: "5e5a52dee6"
+    title: Rebellions and SK Telecom team with NVIDIA on Korean sovereign AI infrastructure
+    abstract: >-
+      NVIDIA, Rebellions and SK Telecom announced a joint effort on sovereign AI infrastructure for Korea, linking NVIDIA's open platform
+      through NVLink Fusion with Rebellions' Korean-designed AI processors and SK Telecom's data center, model and service offerings.

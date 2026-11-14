@@ -1,0 +1,15 @@
+[Unit]
+Description=ai-briefing daily feed harvest (tools/harvest)
+Documentation=file://%h/ai-briefing-demo/tools/harvest/README.md
+# If every feed fails (usually the network is not up yet right after login), try again: at most 4 starts in 30 minutes.
+StartLimitIntervalSec=30min
+StartLimitBurst=4
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/ai-briefing-demo
+ExecStart=%h/miniconda3/envs/ai-briefing-harvest/bin/python tools/harvest/harvest.py
+# harvest.py exits 1 only when no feed answered at all.
+Restart=on-failure
+RestartSec=2min
+Nice=10

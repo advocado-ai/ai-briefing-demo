@@ -1,0 +1,14 @@
+# conda environment for the daily feed harvester (tools/harvest). Small on purpose: no model, no database, no framework.
+#   conda env create -f tools/harvest/environment.yml      (from the repo root)
+#   conda activate ai-briefing-harvest
+#   (already created? use: conda env update -f <same file> --prune)
+name: ai-briefing-harvest
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - feedparser
+  - httpx
+  - pyyaml
+  - pytest
+  - ruff

@@ -1,0 +1,24 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# local data and output (the harvester and the bake-off write here)
+data/
+output/
+*.log
+*.jsonl
+
+# Python and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+
+# editors, OS, local agent settings
+.idea/
+.vscode/
+.DS_Store
+.claude/

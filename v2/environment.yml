@@ -1,0 +1,18 @@
+# conda environment for ai-briefing v2 (the greenfield rebuild).
+#   conda env create -f v2/environment.yml      (from the repo root)
+#   conda activate ai-briefing-v2
+#   conda env update -f v2/environment.yml --prune   (after changing this file)
+#
+# Deliberately small: the pilot module is pure logic, so it needs no framework, no network library and no
+# embedding model. Libraries for later modules (LangGraph, LangChain, the embedder, the database driver)
+# are added when those modules are built, each in its own commit.
+name: ai-briefing-v2
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - pydantic>=2.6
+  - pytest>=8.0
+  - hypothesis>=6.100
+  - mypy>=1.10
+  - ruff>=0.5
